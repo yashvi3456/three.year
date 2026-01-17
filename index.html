@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yashvi & Aryan — 3 Years of Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fde2e4, #fadadd);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* LOCK SCREEN */
+    .lock {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #b03060, #ee9ca7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      color: white;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .lock input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .lock button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      border: none;
+      background: white;
+      color: #b03060;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      flex-direction: column;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #b03060;
+      margin-bottom: 10px;
+    }
+    header p {
+      max-width: 600px;
+      font-size: 1.2rem;
+    }
+
+    /* COUNTER */
+    .counter {
+      margin-top: 25px;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 2.3rem;
+      color: #b03060;
+      margin-bottom: 40px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      border-left: 3px solid #b03060;
+      padding-left: 30px;
+    }
+    .event {
+      margin-bottom: 40px;
+      cursor: pointer;
+    }
+    .event h3 { color: #ee5a7d; }
+    .event p { display: none; }
+    .event.active p { display: block; }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+    }
+
+    /* LETTER */
+    .letter {
+      background: #fff0f5;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #b03060;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div class="lock" id="lock">
+  <h1>Only Aryan Can Enter 💖</h1>
+  <p>Hint: nickname</p>
+  <input type="text" id="password" placeholder="Enter here" />
+
+  <button onclick="unlock()">Unlock</button>
+</div>
+
+<!-- HERO -->
+<header>
+  <h1>Yashvi & Aryan</h1>
+  <p>Three years of choosing each other, every single day and i'm so grateful for you every day. Don,t worry because I won't stop annoying you like ever and I will always keep you as my human diary hehe. </p>
+  <div class="counter" id="counter"></div>
+</header>
+
+<!-- TIMELINE -->
+<section>
+  <h2>Our Story (Tap to Read)</h2>
+  <div class="timeline">
+    <div class="event" onclick="toggle(this)">
+      <h3>The Day We Met</h3>
+      <p> Haha i remember vardhman introduced at sakshi,s roka party and honestly i always thought that you were chapri haha. We had sm fun dancing and "no touching surana" is forever iconic because now i only want you touching. I am so thankful that i ignored everyone's negative talks and choose to date you because you are the best thing that happened to me. I love u hehe. You are my favourite human being and that is why i feel like slapping you sometimes hehehehe</p>
+    </div>
+    <div class="event" onclick="toggle(this)">
+      <h3>First Year</h3>
+      <p> Now that I think about it , we were such young kids back then - 10th and 11th grade omg. I love how we choose to grow up together , make ourselves better and learn to live life together.</p>
+    </div>
+    <div class="event" onclick="toggle(this)">
+      <h3>Second Year</h3>
+      <p> AAAAAAAAAAA long distance started here but hehe distance can't keep us apart. We have had our fair share fights during this phase but we managed to overcome those and chose each other no matter what. I promise to stand by your side always for better and for worse.</p>
+    </div>
+    <div class="event" onclick="toggle(this)">
+      <h3>Third Year</h3>
+      <p> This was such a big change , I went to singapore. I am so grateful for how understanding and considrate you are for me. Thank you for understanding that i am busy , for always encouraging me to go out and for being there for me when i get overwhelmed by work or homesick. I promise to always try to understand you like you do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h2>Our Memories 📸</h2>
+  <div class="gallery">
+    <img src="17thjan23.jpg" onclick="openModal(this.src)">
+    <img src="100_0022.JPG" onclick="openModal(this.src)">
+    <img src="PHOTO-2024-10-31-00-59-03.jpg" onclick="openModal(this.src)">
+    <img src="subko.jpg" onclick="openModal(this.src)">
+  </div>
+</section>
+
+<!-- LETTER -->
+<section>
+  <h2>A Letter for You</h2>
+  <div class="letter">
+    My love Aryan,<br><br>
+    These three years with you have been my safest place and my happiest days. I will always thank my stars that i found you. I am here and I am never gonna leave. I hope you know how much I appreciate you and how proud I am of you for being this kind , loving , caring and smart human being. I will always love u with all my heart.
+    Thank you for being my calm, my excitement and my forever.
+    <br><br>
+    No matter how many years pass, I will always choose you.
+    <br><br>
+    Forever yours,<br>
+    Yashvi ❤️
+  </div>
+</section>
+
+<footer>
+  Made with ❤️ by Yashvi, for Aryan<br>
+  <button onclick="launchConfetti()" style="margin-top:15px;padding:10px 20px;border:none;border-radius:20px;background:white;color:#b03060;font-weight:600;cursor:pointer;">Celebrate Us 🎉</button>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="this.style.display='none'">
+  <img id="modalImg" />
+</div>
+
+<script>
+  function unlock() {
+    const pass = document.getElementById('password').value.toLowerCase();
+    if (pass === 'pumpkin') document.getElementById('lock').style.display = 'none';
+  }
+
+  function toggle(el) {
+    el.classList.toggle('active');
+  }
+
+  function openModal(src) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modalImg').src = src;
+  }
+
+  // COUNTER
+  const start = new Date('2022-01-18'); // change to your real date
+  setInterval(() => {
+    const now = new Date();
+    const diff = now - start;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('counter').innerText = `${days} days of us ❤️`;
+  }, 1000);
+  function launchConfetti() {
+    const duration = 4 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
